@@ -1,4 +1,9 @@
-﻿
+﻿Write-Host "PLEASE MAKE SURE YOU ARE RUNNING POWERSHELL AS ADMINISTRATOR"
+Write-Host ''
+Write-Host "Use the batch file (located in the same directory as this script) to add 'Run as Admin' in your drop-down menu for PowerShell files"
+Write-Host ''
+Write-Host ''
+
 $SerStat = Read-Host -Prompt 'Wacom Tablet Service - 0 = Exit, 1 = Start, 2 = Stop, 3 = Restart, 4 = Status'
 
 IF($SerStat -match '1'){
