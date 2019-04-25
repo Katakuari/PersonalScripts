@@ -15,5 +15,3 @@ ECHO Renamed files to .png format
 
 ::Pause after completion
 PAUSE
-
-::Script made by Katakuari 2019
