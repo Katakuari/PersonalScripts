@@ -29,8 +29,6 @@ Write-Host ''
 Write-Host ''
 Write-Host 'Requesting Status...'
 Get-Service -Name WTabletServicePro
-Write-Host ''
-Write-Host ''
 }
 
 IF($SerStat -match '0'){
