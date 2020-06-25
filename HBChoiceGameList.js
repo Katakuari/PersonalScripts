@@ -1,5 +1,6 @@
 // Copy and paste this code into the browsers dev console
 // INTENDED FOR HUMBLE BUNDLES CHOICE PAGE FOR SUBSCRIBERS
+// ONLY TESTED IN FIREFOX
 
 
 const humbleChoiceGames = () => {

@@ -1,15 +1,21 @@
-// Copy and paste this code into the browser's dev console
+// Copy and paste this code into your browsers dev console
 // INTENDED FOR HUMBLE BUNDLES KEY PAGE IN YOUR ACCOUNT
-// TO GENERATE A LIST OF UNUSED KEYS, PLEASE TICK THE BOX ON THE PAGE TO HIDE USED KEYS
+// ONLY TESTED IN FIREFOX
+
 
 const humbleKeyList = () => {
-    let numOfGames = document.getElementsByClassName('game-name').length; // Get number of items on page
-    let gamelist; // Initialize gamelist variable for later use
+    let numOfGames = document.getElementsByClassName('game-name').length; // Get number of games on page
+    let gamelist; // Initialize gamelist var for later use
+    let gamename; // Initialize gamename var for later use
     for (let i = 1; i < numOfGames; i++){
-        let gamename = document.getElementsByClassName('game-name')[i].firstElementChild.innerText; // Fetch game name
-        gamelist += '\n' + gamename; // Add name at the end of the list
+        gamename = document.getElementsByClassName('game-name')[i].firstElementChild.innerText; // Fetch current game name
+        gamelist += '\n' + gamename; // Add current game at the end of the list
     };
-    console.log(gamelist); // Show the generated list
+    console.log(gamelist); // Log the generated list in the console
 };
 
-humbleKeyList(); // Call function
+if (document.getElementById('hide-redeemed').checked === false){ // Check if checkbox has already been clicked
+    document.getElementById('hide-redeemed').click(); // Click checkbox to hide redeemed keys
+};
+
+setTimeout(humbleKeyList, 2000); // Call function with a 2 second delay
