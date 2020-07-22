@@ -16,5 +16,5 @@ FOR /F "tokens=*" %%G IN ('DIR . /B') DO (
 IF %%~zG LSS %maxsize% del %%G
 )
 
-::Rename all filtered files to *.png (can be changed to .jpg)
-REN *.* *.png
+::Change extensions of all filtered files to .jpg
+REN *.* *.jpg
