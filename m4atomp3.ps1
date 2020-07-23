@@ -25,7 +25,7 @@ function fileConv {
     FOREACH ($i in $files2conv) {
         Write-Host ""
         Write-Host "Current file: $i" -ForegroundColor green # Write current file being converted in green text
-        ffmpeg -hide_banner -loglevel panic -i "$srcdir\$i" -ar 48000 -ac 2 -ab 192k -f mp3 "$i.mp3" -n # FFMPEG command
+        ffmpeg -hide_banner -loglevel panic -i "$srcdir\$i" -ar 44100 -ac 2 -ab 256k -f mp3 "$i.mp3" -n # FFMPEG command
         try {
             Move-Item -Path "$srcdir\$i.mp3" -Destination "$outdir" -Force # Move the converted .mp3 file to Output directory
             Write-Host "[ OKAY ] File moved to $outdir"
