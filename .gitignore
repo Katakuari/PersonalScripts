@@ -1,2 +1,4 @@
 Batches/WindowsRepair.bat
 WacomService/WacomServiceRestart.bat
+youtube-dl-win/*ffmpeg*
+youtube-dl-win/youtube-dl.exe

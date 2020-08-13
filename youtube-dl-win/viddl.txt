@@ -1,0 +1,8 @@
+# Lines with # are comments
+-ciw
+
+--console-title
+--geo-bypass
+
+# Do not copy the mtime
+--no-mtime
