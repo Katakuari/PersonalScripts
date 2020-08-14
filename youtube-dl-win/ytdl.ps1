@@ -1,12 +1,15 @@
-# 13.08.2020
+# 14.08.2020
 
-Write-Host "Please make sure you have youtube-dl.exe and ffmpeg\bin\ in the same directory as this script." -ForegroundColor Red
 $parentdir = Get-Location # Get parent directory of script
 $outdir = "$HOME\Downloads"
 
+Write-Host "[ INFO ] Please make sure you have youtube-dl.exe and ffmpeg\bin\ in the same directory as this script." -ForegroundColor Cyan
+Write-Host "[ INFO ] Download destination: $outdir" -ForegroundColor Cyan
+
 function videoDownload {
-    $vidlink = Read-Host -Prompt "Video link"
-    Write-Host "Download destination: $outdir" -ForegroundColor Cyan
+    Write-Host ""
+    Write-Host "Video format: mp4"
+    $vidlink = Read-Host -Prompt "Video link"    
     Set-Location $outdir
 
     try { # Check if ffmpeg is in PATH by executing it, and choose method depending on it
@@ -28,8 +31,9 @@ function videoDownload {
 
 
 function musicDownloadm4a {
+    Write-Host ""
+    Write-Host "Audio format: m4a"
     $vidlink = Read-Host -Prompt "Video or playlist link"
-    Write-Host "Download destination: $outdir" -ForegroundColor Cyan
     Set-Location $outdir
 
     try {
@@ -52,8 +56,8 @@ function musicDownloadm4a {
 
 function musicDownloadmp3 {
     Write-Host ""
+    Write-Host "Audio format: mp3"
     $vidlink = Read-Host -Prompt "Video or playlist link"
-    Write-Host "Download destination: $outdir" -ForegroundColor Cyan
     Set-Location $outdir
 
     try {

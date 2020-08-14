@@ -3,6 +3,7 @@
 
 --console-title
 --geo-bypass
+--format mp4
 
 # Do not copy the mtime
 --no-mtime
