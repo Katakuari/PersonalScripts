@@ -12,7 +12,7 @@ cd %userprofile%\OneDrive
 set /p vidlink="Video link: "
 set vidlink="%vidlink%"
 
-%parent%\youtube-dl.exe --ffmpeg-location %parent%\%ffmpeg%\bin --config-location %parent%\viddl.txt %vidlink%
+%parent%\youtube-dl.exe --ffmpeg-location %parent%\%ffmpeg%\bin --config-location %parent%\configmp4.txt %vidlink%
 
 
 
