@@ -70,8 +70,6 @@ function selection {
 }
 selection
 
-
 explorer.exe "$outdir"
 Set-Location $parentdir
-
 Exit
