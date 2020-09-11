@@ -11,9 +11,9 @@ Write-Host "[ INFO ] Download destination: $outdir" -ForegroundColor Cyan
 
 function ytdl ([string]$fileformat) {
     # Get file format from selection
-    Write-Host ""
     Write-Host "Chosen file format: $fileformat"
-
+    Write-Host ""
+    
     $config = Get-ChildItem -Path $parentdir -File -Filter *$fileformat*.txt # Search for a txt config with file format in name
     if ($null -eq $config) {
         # If no config found, show error and ask if script should continue
@@ -109,7 +109,7 @@ function reqCheck ([string]$req) {
 }
 
 function selection {
-    Write-Host "Available download formats: 1 - mp4 | 2 - m4a | 3 - mp3 | 4 - custom"
+    Write-Host "Available download formats: 1 - mp4 (default) | 2 - m4a | 3 - mp3 | 4 - custom"
     Write-Host "Press Enter to Exit."
     Write-Host ""
     $modesel = Read-Host -Prompt "Enter selection"
@@ -122,7 +122,7 @@ function selection {
             $custfileformat = Read-Host -Prompt "Custom file format"
             ytdl("$custfileformat")
         }
-        Default { Exit }
+        Default { ytdl("mp4") }
     }
 }
 
