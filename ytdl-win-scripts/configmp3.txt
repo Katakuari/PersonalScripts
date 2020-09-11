@@ -7,6 +7,7 @@
 
 # Always extract audio, set audio format to mp3
 -x
+-f bestaudio
 --audio-format mp3
 
 # Do not copy the mtime
