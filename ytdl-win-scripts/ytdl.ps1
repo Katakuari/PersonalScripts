@@ -1,4 +1,5 @@
-# 05.09.2020
+# Last edit: 11.09.2020
+# Author: Katakuari - https://github.com/Katakuari
 
 New-Variable -Name parentdir -Value (Get-Location -PSProvider FileSystem) -Option ReadOnly # Get parent directory of script
 New-Variable -Name WC -Value (New-Object System.Net.WebClient) -Option ReadOnly # Create WebClient and set links in case ffmpeg and/or ytdl are not found
