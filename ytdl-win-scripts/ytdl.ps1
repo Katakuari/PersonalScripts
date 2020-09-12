@@ -1,7 +1,7 @@
-# Last edit: 11.09.2020
+# Last edit: 12.09.2020
 # Author: Katakuari - https://github.com/Katakuari
 
-New-Variable -Name parentdir -Value (Get-Location -PSProvider FileSystem) -Option ReadOnly # Get parent directory of script
+New-Variable -Name parentdir -Value (Split-Path $Script:MyInvocation.MyCommand.Path) -Option ReadOnly # Get parent directory of script
 New-Variable -Name WC -Value (New-Object System.Net.WebClient) -Option ReadOnly # Create WebClient and set links in case ffmpeg and/or ytdl are not found
 New-Variable -Name ffmpeglink -Value "https://ffmpeg.zeranoe.com/builds/win64/static/ffmpeg-4.3-win64-static.zip" -Option ReadOnly
 New-Variable -Name ytdllink -Value "https://youtube-dl.org/downloads/latest/youtube-dl.exe" -Option ReadOnly
