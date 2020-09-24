@@ -1,17 +1,18 @@
-# Last edit: 12.09.2020
+# Last edit: 24.09.2020
 # Author: Katakuari - https://github.com/Katakuari
 
 New-Variable -Name parentdir -Value (Split-Path $Script:MyInvocation.MyCommand.Path) -Option ReadOnly # Get parent directory of script
+New-Variable -Name outdir -Value "$HOME\Downloads" -Option ReadOnly # Destination for video download
+
 New-Variable -Name WC -Value (New-Object System.Net.WebClient) -Option ReadOnly # Create WebClient and set links in case ffmpeg and/or ytdl are not found
 New-Variable -Name ffmpeglink -Value "https://ffmpeg.zeranoe.com/builds/win64/static/ffmpeg-4.3-win64-static.zip" -Option ReadOnly
 New-Variable -Name ytdllink -Value "https://youtube-dl.org/downloads/latest/youtube-dl.exe" -Option ReadOnly
-$outdir = "$HOME\Downloads" # Destination for video download
+
 
 Write-Host "[ INFO ] Please make sure you have your txt configs in the same directory as this script." -ForegroundColor Cyan
-Write-Host "[ INFO ] Download destination: $outdir" -ForegroundColor Cyan
 
 function ytdl ([string]$fileformat) {
-    # Get file format from selection
+    # File format passed from selection
     Write-Host "Chosen file format: $fileformat"
     Write-Host ""
     
@@ -31,7 +32,7 @@ function ytdl ([string]$fileformat) {
     Set-Location $outdir
 
     if ($null -eq (Get-ChildItem -Path $parentdir -File -Filter "youtube-dl.exe")) {
-        # Check for ytdl, and download if missing
+        # Youtube-dl requirement check
         reqCheck("ytdlcheck")
     }
 
@@ -43,6 +44,7 @@ function ytdl ([string]$fileformat) {
     catch {
         # If FFMPEG not working from PATH, check if FFMPEG\ exists in parent directory
         if ($null -eq (Get-ChildItem -Path $parentdir -Directory -Filter *ffmpeg*)) {
+            # FFMPEG requirement check
             reqCheck("ffmpegcheck")
         }
         $ffmpegdir = Get-ChildItem -Path $parentdir -Directory -Filter *ffmpeg*
